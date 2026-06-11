@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Purva | Software Developer & Creative Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of Purva, Software Developer & Creative Engineer specializing in full-stack applications, interactive canvas design, WebGL engines, and custom physics animations.">
+  <meta name="keywords" content="Software Developer, Creative Engineer, Frontend Developer, WebGL, Next.js, Rust, Interactive Portfolio, GSAP ScrollTrigger">
+  <meta name="author" content="Purva">
+  
+  <!-- OG Meta Tags -->
+  <meta property="og:title" content="Purva | Software Developer Portfolio">
+  <meta property="og:description" content="Explore custom full-stack solutions, creative canvas physics sandboxes, and smooth horizontal scroll portfolios.">
+  <meta property="og:type" content="website">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Overlays -->
+  <div class="noise-overlay"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-main"></div>
+
+
+
+  <!-- 3D WebGL Canvas Holder -->
+  <div id="renderer3d" class="renderer-3d"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loading-screen">
+    <div class="loading-header">
+      <a href="#" class="loader-title" data-cursor="disable">Purva</a>
+      
+      <!-- Retro game graphics loader -->
+      <div class="loaderGame">
+        <div class="loaderGame-container">
+          <div class="loaderGame-in">
+            <!-- 27 discrete tick lines -->
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+            <div class="loaderGame-line"></div>
+          </div>
+          <div class="loaderGame-ball"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center running marquee loops -->
+    <div class="loading-marquee">
+      <div class="loading-marquee-in">
+        &nbsp; CREATIVE ENGINEER &nbsp; <span>•</span> &nbsp; FULL-STACK DEVELOPER &nbsp; <span>•</span> &nbsp; CREATIVE ENGINEER &nbsp; <span>•</span> &nbsp; FULL-STACK DEVELOPER &nbsp;
+      </div>
+    </div>
+
+    <!-- Loading progress button wrapper -->
+    <div class="loading-wrap">
+      <button class="loading-button" data-cursor="disable">
+        <div class="loading-container">
+          <div class="loading-content">Loading <span>0%</span></div>
+          <div class="loading-box"></div>
+        </div>
+        <div class="loading-content2">
+          <span>WELCOME</span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="navbar-header">
+    <a href="#" class="nav-logo" data-cursor="disable">PurvaSatikuvar</a>
+    
+    <div class="nav-controls">
+      <!-- Audio Toggle Control -->
+      <button class="audio-toggle" data-cursor="disable" aria-label="Mute sound effects">
+        <span id="sound-on">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+          </svg>
+        </span>
+        <span id="sound-off">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+          </svg>
+        </span>
+        SOUND
+      </button>
+
+      <!-- Hamburger Menu toggle -->
+      <button class="hamburger-menu" data-cursor="disable" aria-label="Open Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Fullscreen navigation links overlay menu -->
+  <div class="menu-overlay">
+    <nav class="menu-links">
+      <a href="#hero" class="menu-link" data-cursor="disable">Home</a>
+      <a href="#about" class="menu-link" data-cursor="disable">About</a>
+      <a href="#skills" class="menu-link" data-cursor="disable">Skills</a>
+      <a href="#experience" class="menu-link" data-cursor="disable">Experience</a>
+      <a href="#projects" class="menu-link" data-cursor="disable">Projects</a>
+      <a href="#physics-sandbox" class="menu-link" data-cursor="disable">Sandbox</a>
+      <a href="#contact" class="menu-link" data-cursor="disable">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Sidebar floating shortcuts / social icons -->
+  <div class="icons-section">
+    <div class="social-icons" data-cursor="icons" id="social">
+      <span>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+      </span>
+      <span>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+          </svg>
+        </a>
+      </span>
+      <span>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg>
+        </a>
+      </span>
+      <span>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+          </svg>
+        </a>
+      </span>
+    </div>
+    
+    <a class="resume-button" href="#" data-cursor="disable">
+      RESUME
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- Primary Scrolling Wrapper -->
+  <div class="container-main">
+    
+    <!-- Hero / Welcome Section -->
+    <section id="hero" class="landing-section">
+
+      <div class="landing-container">
+        <div class="landing-intro">
+          <h2>Hello! I'm</h2>
+          <h1>PURVA <br><span>SATIKUVAR</span></h1>
+        </div>
+        <div class="landing-info">
+          <h3>A</h3>
+          <h2 class="landing-info-h2">Creative Engineer</h2>
+          <h2>/</h2>
+          <h2 class="landing-h2-info">Full-Stack Developer</h2>
+        </div>
+      </div>
+
+      <!-- Interactive Developer Thinking Bubble -->
+      <div class="avatar-thinking-bubble">
+        <div class="thinking-bubble-header">
+          <span class="thinking-dot"></span>
+          <span>THINKING_SYSTEM</span>
+        </div>
+        <div class="thinking-bubble-body">
+          <span class="thinking-text"></span>
+        </div>
+      </div>
+      <div class="thinking-bubble-medium"></div>
+      <div class="thinking-bubble-small"></div>
+      <div class="thinking-bubble-tiny"></div>
+    </section>
+
+    <!-- What I Do Accordion -->
+    <section id="skills" class="section-container">
+      <div class="whatIDO">
+        <div class="what-box">
+          <h2 class="title">
+            W<span class="hat-h2">HAT</span><br>
+            <div>&nbsp;I<span class="do-h2"> DO</span></div>
+          </h2>
+        </div>
+
+        <div class="what-box-in">
+          <!-- Accordion Box 1 -->
+          <div class="what-content what-content-active">
+            <div class="what-arrow"></div>
+            <div class="what-content-in">
+              <h3>Core Technologies</h3>
+              <h4>Systems programming, frameworks, and architecture</h4>
+              <p>Building responsive, highly performant systems using JavaScript, TypeScript, Rust, and Go. Architecting clean database schemas and scalable cloud-based microservices.</p>
+              <h5>Skillset & tools</h5>
+              <div class="what-content-flex">
+                <div class="what-tags">JavaScript</div>
+                <div class="what-tags">TypeScript</div>
+                <div class="what-tags">React</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Box 2 -->
+          <div class="what-content">
+            <div class="what-arrow"></div>
+            <div class="what-content-in">
+              <h3>Graphics & UI/UX</h3>
+              <h4>Creative styling, animations, and engines</h4>
+              <p>Crafting beautiful browser pipelines with Custom WebGL, canvas physics, GSAP, CSS grid topologies, and high-fidelity wireframing in Figma.</p>
+              <h5>Skillset & tools</h5>
+              <div class="what-content-flex">
+                <div class="what-tags">WebGL</div>
+                <div class="what-tags">Three.js</div>
+                <div class="what-tags">GSAP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Statement -->
+    <section id="about" class="about-section">
+      <div class="about-me">
+        <h3 class="title">Designing fluid digital dimensions through code.</h3>
+        <p class="para">
+          I am a full-stack engineer who builds tactile web applications, interactive math/physics sandboxes, and custom graphics pipelines. I bridge the gap between creative visual layouts and solid backend systems. Obsessed with performance, micro-interactions, and procedural code.
+        </p>
+      </div>
+    </section>
+
+    <!-- Career Experience Timeline -->
+    <section id="experience" class="section-container">
+      <div class="career-container">
+        <h2>My career <span>&</span><br>experience</h2>
+        
+        <div class="career-info">
+          <!-- Scalable scroll-timeline path -->
+          <div class="career-timeline">
+            <div class="career-dot"></div>
+          </div>
+          
+          <!-- Career boxes generated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Scroll Projects Showcase -->
+    <section id="projects" class="work-section">
+      <div class="work-container">
+        <h2>My <span>Work</span></h2>
+        
+        <div class="work-flex">
+          <!-- Cards populated dynamically via app.js -->
+          
+          <!-- Call To Action final box -->
+          <div class="work-box work-box-cta">
+            <div class="see-all-works">
+              <h3>Want to see more?</h3>
+              <p>Explore all of my projects and creations</p>
+              <a href="#" class="see-all-btn" data-cursor="disable">See All Works →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Gravity Physics Sandbox Canvas -->
+    <section id="physics-sandbox" class="section-container skills-canvas-section">
+      <div class="skills-canvas-intro">
+        <h2>Skills <span>Sandbox</span></h2>
+        <p>
+          Throw, grab, and launch my core skills using 2D physics boundaries. Interact using your mouse/touch gestures, or alter the vector coordinates of gravity in real-time.
+        </p>
+        <div class="gravity-controls">
+          <button class="gravity-btn active" data-gravity="down">↓ DOWN</button>
+          <button class="gravity-btn" data-gravity="up">↑ UP</button>
+          <button class="gravity-btn" data-gravity="left">← LEFT</button>
+          <button class="gravity-btn" data-gravity="right">→ RIGHT</button>
+          <button class="gravity-btn" data-gravity="zero">● ZERO-G</button>
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <div class="canvas-hint">DRAG & THROW NODES</div>
+        <canvas id="skillsCanvas"></canvas>
+      </div>
+    </section>
+
+    <!-- Call To Action Row -->
+    <section class="cta-row-section">
+      <div class="cta-buttons">
+        <a href="#physics-sandbox" class="cta-btn cta-btn-play" data-cursor="disable">Play With Me →</a>
+        <a href="#" class="cta-btn cta-btn-hire" data-cursor="disable">Hire Me →</a>
+      </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="section-container contact-section">
+      <h3>Purva</h3>
+      
+      <div class="contact-flex">
+        <div class="contact-box">
+          <h4>Email</h4>
+          <p><a href="mailto:alex@rivera.dev" data-cursor="disable">alex@rivera.dev</a></p>
+          <h4>Phone</h4>
+          <p><a href="tel:+919327287329" id="contact-phone" data-cursor="disable">+91 9327287329</a></p>
+          <h4>Location</h4>
+          <p><span id="contact-location">New York, NY</span></p>
+        </div>
+        
+        <div class="contact-box">
+          <h4>Social</h4>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+            Github
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+            Linkedin
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+            Twitter
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+            Instagram
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
+          </a>
+        </div>
+
+        <div class="contact-box">
+          <h2>Designed and Developed <br>by <span>Purva</span></h2>
+          <h5>&copy; 2026</h5>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Command Palette shortcuts button launcher -->
+  <button id="cmdPaletteBtn" class="cmd-palette-btn" data-cursor="disable">
+    <kbd>Ctrl</kbd> + <kbd>K</kbd> Command Palette
+  </button>
+
+  <!-- Command Palette Terminal Window Overlay -->
+  <div class="cmd-overlay">
+    <div class="cmd-box">
+      <div class="cmd-input-wrapper">
+        <span class="cmd-prefix">></span>
+        <input type="text" class="cmd-input" placeholder="Type a command (e.g. /projects, /gravity-flip)..." aria-label="Command palette input field">
+      </div>
+      <div class="cmd-results">
+        <!-- Render results dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript Libraries -->
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Three.js & GLTF Loader CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  
+  <!-- Custom scripts -->
+  <script src="audio.js?v=1.0.1"></script>
+  <script src="physics.js?v=1.0.1"></script>
+  <script src="scene3d.js?v=1.0.8"></script>
+  <script src="app.js?v=1.0.8"></script>
+</body>
+</html>
