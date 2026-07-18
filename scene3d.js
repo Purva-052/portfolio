@@ -23,24 +23,41 @@ class Avatar3DScene {
     // Single transition progress state (0 = Standing at Hero/About, 1 = Sitting at Skills)
     this.scrollProgress = 0;
 
-    // ── STANDING camera: Upper body close-up, avatar positioned right ──
-    this.cameraPos  = { x: 2.1, y: 1.45, z: 1.4 };
-    this.cameraLook = { x: -2.3, y: 1.35, z: 0.0 };
-
-    // ── SITTING camera: Close-up typing at desk (shifted left) ──
-    this.skillsTargetPos  = { x: 0.8, y: 1.25, z: 2.2 };
-    this.skillsTargetLook = { x: -0.2, y: 0.9, z: 0.0 };
+    this.updateCameraVectors();
 
     // Current interpolated camera states
     this.currentCamPos  = { ...this.cameraPos };
     this.currentCamLook = { ...this.cameraLook };
-    this.currentFov     = 31;
 
     this.workspaceGroup = null;
     this.laptopGroup = null;
     this.screenLight = null;
 
     this.init();
+  }
+
+  // ─────────────────────────────────────────────────────────
+  updateCameraVectors() {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      // Mobile camera layouts (centered, slightly zoomed out for portrait screens)
+      this.cameraPos        = { x: 0.0, y: 1.5, z: 2.3 };
+      this.cameraLook       = { x: 0.0, y: 1.25, z: 0.0 };
+      this.skillsTargetPos  = { x: 0.0, y: 1.35, z: 2.5 };
+      this.skillsTargetLook = { x: 0.0, y: 0.85, z: 0.0 };
+      this.currentFov       = 36;
+    } else {
+      // Desktop camera layouts (split screen, offset to the right)
+      this.cameraPos        = { x: 2.1, y: 1.45, z: 1.4 };
+      this.cameraLook       = { x: -2.3, y: 1.35, z: 0.0 };
+      this.skillsTargetPos  = { x: 0.8, y: 1.25, z: 2.2 };
+      this.skillsTargetLook = { x: -0.2, y: 0.9, z: 0.0 };
+      this.currentFov       = 31;
+    }
+    if (this.camera) {
+      this.camera.fov = this.currentFov;
+      this.camera.updateProjectionMatrix();
+    }
   }
 
   // ─────────────────────────────────────────────────────────
