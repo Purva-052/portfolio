@@ -17,9 +17,9 @@ const DeveloperConfig = {
     title: "Full Stack Developer",
     tagline1: "Full Stack Developer",
     tagline2: "Creative Engineer",
-    resumeLink: "https://linkedin.com/in/purva-satikuvar-473122294",
+    resumeLink: "https://drive.google.com/file/d/1STgRj_hdwgysxMWgIT1EV8WzQafrHguk/view?usp=sharing",
     aboutTitle: "Building scalable real-time systems and responsive interfaces.",
-    aboutText: "Motivated Full Stack Developer with 11 months of hands-on experience building scalable web applications. Proficient in React.js, Next.js, and TypeScript on the frontend, with growing expertise in Node.js, Express.js, and databases on the backend. Demonstrated ability to take projects from scratch to production, implement real-time features, and debug complex interlinked systems in fast-paced startup environments.",
+    aboutText: "Motivated Full Stack Developer with 1 year of hands-on experience building scalable web applications. Proficient in React.js, Next.js, and TypeScript on the frontend, with growing expertise in Node.js, Express.js, and databases on the backend. Demonstrated ability to take projects from scratch to production, implement real-time features, and debug complex interlinked systems in fast-paced startup environments.",
   },
   skills: {
     develop: {
@@ -62,7 +62,7 @@ const DeveloperConfig = {
         "Ensured seamless communication between admin and client views for operational visibility"
       ],
       image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
-      link: "#"
+      link: "https://dtep-river-port-admin.vercel.app/"
     },
     {
       id: 2,
@@ -76,7 +76,7 @@ const DeveloperConfig = {
         "Designed intuitive UX flows for trip discovery, planning, and AI-assisted recommendations"
       ],
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80",
-      link: "#"
+      link: "https://travel-buddy-topaz-ten.vercel.app/"
     },
     {
       id: 3,
@@ -90,34 +90,35 @@ const DeveloperConfig = {
         "Improved frontend performance and user experience for browsing/filtering automotive parts"
       ],
       image: "auto_parts_catalog.png",
-      link: "#"
+      link: "https://netpart-admin.devstree.in/"
     },
     {
       id: 4,
-      title: "WorkSafe - Home Service Booking",
-      category: "Web App / Audio & Video",
-      technologies: "React.js, REST APIs, Video & Audio Calling, CRUD Booking Systems",
+      title: "Mitgo Admin Panel",
+      category: "Admin Dashboard",
+      technologies: "Next js, Tailwind CSS, TypeScript, Chart.js, Map APIs, REST Integration",
       bullets: [
-        "Developed UI components for booking home maintenance services (repairing, plumbing) at home",
-        "Integrated audio and video recording/calling features to verify and document repair work",
-        "Integrated REST APIs into frontend, handling data fetching, form submissions, and state management",
-        "Gained foundational experience in React component architecture and API integration patterns"
+        "Developed a modern, responsive admin dashboard panel for partner/client metrics tracking",
+        "Created interactive analytics widgets and data charts using Chart.js",
+        "Integrated interactive map APIs with custom marker keys to visualize geographical partner distribution",
+        "Integrated RESTful endpoints for real-time CRUD operations and data updates",
+        "Designed role-based view layouts with custom permission systems for administrators"
       ],
-      image: "home_service_app.png",
-      link: "#"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      link: "https://mitgo-admin.devstree.in/"
     },
     {
       id: 5,
-      title: "E-Commerce - Personal Proj",
-      category: "Full-Stack Project",
-      technologies: "Next.js, Node.js, Express.js, Checkout/Cart Systems",
+      title: "Expense Flow",
+      category: "Backend / NestJS & PostgreSQL",
+      technologies: "NestJS, PostgreSQL, TypeORM, REST APIs, System Architecture",
       bullets: [
-        "Building a full-stack e-commerce application using Next.js (frontend) and Express.js (backend)",
-        "Implementing product catalog, cart, checkout, and order management features",
-        "Designing and integrating database schemas; applying backend skills in a real-world project",
-        "Strengthening full-stack understanding by owning the entire development lifecycle"
+        "Architected and developed a scalable backend system for personal finance tracking",
+        "Designed a relational database schema in PostgreSQL with efficient indexing and query optimization",
+        "Implemented NestJS modules, controllers, and services with strict TypeScript validation",
+        "Created secure REST APIs with JWT authentication and guards for role-based access control"
       ],
-      image: "ecommerce_app.png",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
       link: "#"
     }
   ],
@@ -129,6 +130,8 @@ const DeveloperConfig = {
     { name: "GSAP", color: "#2e3a1f", textColor: "#88ce02" },
     { name: "Node.js", color: "#1a2c1a", textColor: "#43853d" },
     { name: "Express.js", color: "#2a2a2a", textColor: "#ffffff" },
+    { name: "NestJS", color: "#1e111a", textColor: "#e0234e" },
+    { name: "PostgreSQL", color: "#1a2430", textColor: "#336791" },
     { name: "REST APIs", color: "#1c2a38", textColor: "#00add8" },
     { name: "SQL & NoSQL", color: "#2d1a24", textColor: "#f59e0b" },
     { name: "AWS", color: "#2d1e11", textColor: "#ff9900" },
@@ -139,7 +142,7 @@ const DeveloperConfig = {
     email: "purvasoni783@gmail.com",
     phone: "+91 9327287329",
     location: "Ahmedabad, Gujarat, India",
-    github: "https://github.com",
+    github: "https://github.com/Purva-052",
     linkedin: "https://linkedin.com/in/purva-satikuvar-473122294",
     twitter: "https://x.com",
     instagram: "https://instagram.com"
@@ -929,7 +932,7 @@ function dynamicLayoutDataBind() {
         ${bulletsHtml}
       </div>
       <div class="work-image" data-cursor="disable">
-        <a class="work-image-in" href="${proj.link}">
+        <a class="work-image-in" href="${proj.link}" target="_blank" rel="noopener noreferrer">
           <div class="work-link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
           </div>
@@ -939,17 +942,31 @@ function dynamicLayoutDataBind() {
     `;
     projectsScrollContainer.appendChild(card);
   });
-  projectsScrollContainer.appendChild(ctaBox);
+  if (ctaBox) {
+    projectsScrollContainer.appendChild(ctaBox);
+    
+    // Bind See All Works button link to GitHub profile
+    const seeAllBtn = ctaBox.querySelector(".see-all-btn");
+    if (seeAllBtn) {
+      seeAllBtn.setAttribute("href", DeveloperConfig.contact.github);
+      seeAllBtn.setAttribute("target", "_blank");
+      seeAllBtn.setAttribute("rel", "noopener noreferrer");
+    }
+  }
 
   // Social Links Contact Bind
-  const socialSpans = document.querySelectorAll("#social span a");
-  socialSpans[0].setAttribute("href", DeveloperConfig.contact.github);
-  socialSpans[1].setAttribute("href", DeveloperConfig.contact.linkedin);
-  socialSpans[2].setAttribute("href", DeveloperConfig.contact.twitter);
-  socialSpans[3].setAttribute("href", DeveloperConfig.contact.instagram);
+  const sidebarGithub = document.querySelector(".social-github");
+  if (sidebarGithub) sidebarGithub.setAttribute("href", DeveloperConfig.contact.github);
   
+  const sidebarLinkedin = document.querySelector(".social-linkedin");
+  if (sidebarLinkedin) sidebarLinkedin.setAttribute("href", DeveloperConfig.contact.linkedin);
+  
+
   // Footer binds
-  document.querySelector(".contact-section h3").innerText = `${DeveloperConfig.profile.name} ${DeveloperConfig.profile.lastName}`;
+  const contactHeading = document.querySelector(".contact-section h3");
+  if (contactHeading) {
+    contactHeading.innerText = `${DeveloperConfig.profile.name} ${DeveloperConfig.profile.lastName}`;
+  }
   document.querySelector(".contact-box a[href^='mailto:']").setAttribute("href", `mailto:${DeveloperConfig.contact.email}`);
   document.querySelector(".contact-box a[href^='mailto:']").innerText = DeveloperConfig.contact.email;
   const phoneEl = document.getElementById("contact-phone");
@@ -962,11 +979,14 @@ function dynamicLayoutDataBind() {
     locationEl.innerText = DeveloperConfig.contact.location;
   }
   
-  const footerSocials = document.querySelectorAll(".contact-box:nth-child(2) a");
-  footerSocials[0].setAttribute("href", DeveloperConfig.contact.github);
-  footerSocials[1].setAttribute("href", DeveloperConfig.contact.linkedin);
-  footerSocials[2].setAttribute("href", DeveloperConfig.contact.twitter);
-  footerSocials[3].setAttribute("href", DeveloperConfig.contact.instagram);
+  const footerGithub = document.querySelector(".footer-github");
+  if (footerGithub) footerGithub.setAttribute("href", DeveloperConfig.contact.github);
+  
+  const footerLinkedin = document.querySelector(".footer-linkedin");
+  if (footerLinkedin) footerLinkedin.setAttribute("href", DeveloperConfig.contact.linkedin);
+  
+  const footerResume = document.querySelector(".footer-resume");
+  if (footerResume) footerResume.setAttribute("href", DeveloperConfig.profile.resumeLink);
   
   document.querySelector(".contact-box h2 span").innerText = `${DeveloperConfig.profile.name} ${DeveloperConfig.profile.lastName}`;
   document.querySelector(".contact-box h5").innerHTML = `&copy; ${new Date().getFullYear()}`;
@@ -996,4 +1016,88 @@ document.addEventListener("DOMContentLoaded", () => {
   initPhysicsSandbox();
   initCommandPalette();
   initThinkingBubble();
+  initContactForm();
 });
+
+// --------------------------------------------------
+// 11. AJAX Contact Form Submission Handler
+// --------------------------------------------------
+function initContactForm() {
+  const form = document.querySelector(".contact-form");
+  if (!form) return;
+
+  // Create success and error alert placeholder
+  const statusPlaceholder = document.createElement("div");
+  statusPlaceholder.className = "form-status-msg";
+  statusPlaceholder.style.cssText = "font-family: var(--font-mono); font-size: 0.85rem; margin-top: 15px; display: none; transition: all 0.3s ease;";
+  form.appendChild(statusPlaceholder);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector(".form-submit-btn");
+    const originalText = submitBtn.innerText;
+    
+    // Disable inputs and show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
+    submitBtn.style.opacity = "0.7";
+
+    const formData = new FormData(form);
+    const formJson = {};
+    formData.forEach((value, key) => {
+      formJson[key] = value;
+    });
+
+    // Use FormSubmit's AJAX submission endpoint
+    fetch("https://formsubmit.co/ajax/purvasoni783@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formJson)
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("Submission failed");
+      return response.json();
+    })
+    .then(data => {
+      submitBtn.innerText = "Message Sent ✓";
+      submitBtn.style.background = "linear-gradient(135deg, var(--accent-emerald), #059669)";
+      submitBtn.style.borderColor = "var(--accent-emerald)";
+      submitBtn.style.color = "var(--text-white)";
+      
+      statusPlaceholder.innerText = "Thank you! Your message has been sent successfully.";
+      statusPlaceholder.style.color = "var(--accent-emerald)";
+      statusPlaceholder.style.display = "block";
+      
+      form.reset();
+
+      // Sound feedback on success
+      if (window.PortfolioAudio) {
+        window.PortfolioAudio.playClick(1.5);
+      }
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalText;
+        submitBtn.style.background = "";
+        submitBtn.style.borderColor = "";
+        submitBtn.style.color = "";
+        submitBtn.style.opacity = "";
+        statusPlaceholder.style.display = "none";
+      }, 5000);
+    })
+    .catch(error => {
+      console.error("Form submit error:", error);
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalText;
+      submitBtn.style.opacity = "";
+      
+      statusPlaceholder.innerText = "Submission failed. Please try again.";
+      statusPlaceholder.style.color = "#ef4444";
+      statusPlaceholder.style.display = "block";
+    });
+  });
+}

@@ -396,38 +396,57 @@ class Avatar3DScene {
     // 2. Rotate Leg Thighs & Shins (relative to saved stand pose)
     const leftUpperLeg = bone("LeftUpperLeg");
     const rightUpperLeg = bone("RightUpperLeg");
-    if (leftUpperLeg) this.lerpRotation(leftUpperLeg, { x: -1.5, y: 0.1, z: 0.0 }, progress);
-    if (rightUpperLeg) this.lerpRotation(rightUpperLeg, { x: -1.5, y: -0.1, z: 0.0 }, progress);
+    if (leftUpperLeg) this.lerpRotation(leftUpperLeg, { x: 1.4, y: 0.05, z: 0.0 }, progress);
+    if (rightUpperLeg) this.lerpRotation(rightUpperLeg, { x: 1.4, y: -0.05, z: 0.0 }, progress);
 
     const leftLowerLeg = bone("LeftLowerLeg");
     const rightLowerLeg = bone("RightLowerLeg");
-    if (leftLowerLeg) this.lerpRotation(leftLowerLeg, { x: 1.5, y: 0.0, z: 0.0 }, progress);
-    if (rightLowerLeg) this.lerpRotation(rightLowerLeg, { x: 1.5, y: 0.0, z: 0.0 }, progress);
+    if (leftLowerLeg) this.lerpRotation(leftLowerLeg, { x: 1.4, y: 0.0, z: 0.0 }, progress);
+    if (rightLowerLeg) this.lerpRotation(rightLowerLeg, { x: 1.4, y: 0.0, z: 0.0 }, progress);
 
     // 3. Lean Spine forward slightly
     const spine = bone("Spine");
     const spine1 = bone("Spine1");
     const spine2 = bone("Spine2");
-    if (spine) this.lerpRotation(spine, { x: 0.15, y: 0.0, z: 0.0 }, progress);
-    if (spine1) this.lerpRotation(spine1, { x: 0.08, y: 0.0, z: 0.0 }, progress);
-    if (spine2) this.lerpRotation(spine2, { x: 0.05, y: 0.0, z: 0.0 }, progress);
+    if (spine) this.lerpRotation(spine, { x: 0.12, y: 0.0, z: 0.0 }, progress);
+    if (spine1) this.lerpRotation(spine1, { x: 0.06, y: 0.0, z: 0.0 }, progress);
+    if (spine2) this.lerpRotation(spine2, { x: 0.04, y: 0.0, z: 0.0 }, progress);
 
-    // 4. Pose Arms & Forearms for Typing
+    // 4. Pose Arms & Forearms for Typing (Raised hands onto the laptop)
     const leftUpperArm = bone("LeftUpperArm");
     const leftLowerArm = bone("LeftLowerArm");
     const rightUpperArm = bone("RightUpperArm");
     const rightLowerArm = bone("RightLowerArm");
 
-    if (leftUpperArm) this.lerpRotation(leftUpperArm, { x: 0.4, y: -0.2, z: -0.4 }, progress);
-    if (leftLowerArm) this.lerpRotation(leftLowerArm, { x: 0.9, y: 0.2, z: 0.0 }, progress);
+    if (leftUpperArm) this.lerpRotation(leftUpperArm, { x: 0.7, y: -0.2, z: -0.3 }, progress);
+    if (leftLowerArm) this.lerpRotation(leftLowerArm, { x: 1.2, y: 0.2, z: 0.0 }, progress);
 
-    if (rightUpperArm) this.lerpRotation(rightUpperArm, { x: 0.4, y: 0.2, z: 0.4 }, progress);
-    if (rightLowerArm) this.lerpRotation(rightLowerArm, { x: 0.9, y: -0.2, z: 0.0 }, progress);
+    if (rightUpperArm) this.lerpRotation(rightUpperArm, { x: 0.7, y: 0.2, z: 0.3 }, progress);
+    if (rightLowerArm) this.lerpRotation(rightLowerArm, { x: 1.2, y: -0.2, z: 0.0 }, progress);
 
     // Hands and finger wiggles (typing motion)
     const leftHand = bone("LeftHand");
     const rightHand = bone("RightHand");
     const time = this.clock.getElapsedTime();
+
+    // Dynamically uncurl fingers when sitting
+    const curlVal = -1.2;
+    const fingersList = ['Middle', 'Ring', 'Pinky'];
+    
+    // Smoothly uncurl fingers from the thinking pose fist to typing flat hands
+    fingersList.forEach(f => {
+      for (let i = 1; i <= 3; i++) {
+        const lJoint = this.bones[`LeftHand${f}${i}`] || this.bones[`mixamorigLeftHand${f}${i}`] || this.bones[`mixamorig:LeftHand${f}${i}`];
+        if (lJoint) {
+          lJoint.rotation.z = this.lerp(curlVal, -0.1, progress);
+        }
+      }
+    });
+    
+    const index1 = this.bones[`LeftHandIndex1`] || this.bones[`mixamorigLeftHandIndex1`] || this.bones[`mixamorig:LeftHandIndex1`];
+    if (index1) index1.rotation.z = this.lerp(-0.6, -0.1, progress);
+    const index2 = this.bones[`LeftHandIndex2`] || this.bones[`mixamorigLeftHandIndex2`] || this.bones[`mixamorig:LeftHandIndex2`];
+    if (index2) index2.rotation.z = this.lerp(-0.8, -0.1, progress);
 
     if (progress > 0.8) {
       if (leftHand) {
@@ -438,6 +457,20 @@ class Avatar3DScene {
         rightHand.rotation.x = -0.15 + Math.cos(time * 18 + 0.5) * 0.06;
         rightHand.rotation.z = Math.sin(time * 12 + 0.5) * 0.03;
       }
+      
+      // Subtle finger wiggling on keypress
+      fingersList.forEach(f => {
+        for (let i = 1; i <= 3; i++) {
+          const lJoint = this.bones[`LeftHand${f}${i}`] || this.bones[`mixamorigLeftHand${f}${i}`] || this.bones[`mixamorig:LeftHand${f}${i}`];
+          if (lJoint) lJoint.rotation.z = -0.15 + Math.sin(time * 24 + i) * 0.06;
+          
+          const rJoint = this.bones[`RightHand${f}${i}`] || this.bones[`mixamorigRightHand${f}${i}`] || this.bones[`mixamorig:RightHand${f}${i}`];
+          if (rJoint) rJoint.rotation.z = -0.15 + Math.cos(time * 24 + i) * 0.06;
+        }
+      });
+      
+      if (index1) index1.rotation.z = -0.15 + Math.sin(time * 20) * 0.05;
+      if (index2) index2.rotation.z = -0.15 + Math.cos(time * 20) * 0.05;
     } else {
       if (leftHand) this.lerpRotation(leftHand, { x: -0.1, y: 0.0, z: 0.0 }, progress);
       if (rightHand) this.lerpRotation(rightHand, { x: -0.1, y: 0.0, z: 0.0 }, progress);
