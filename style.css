@@ -398,6 +398,8 @@ html, body {
   flex-direction: column;
   gap: 20px;
   text-align: center;
+  max-height: 85vh;
+  overflow-y: auto;
 }
 
 .menu-link {
@@ -437,7 +439,7 @@ html, body {
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 6rem;
+  padding: 0 6rem 0 8.5rem;
 }
 
 .landing-container {
@@ -457,10 +459,10 @@ html, body {
 
 .landing-intro h1 {
   font-family: var(--font-serif);
-  font-size: 6.5rem;
+  font-size: 5.2rem;
   font-weight: 800;
   line-height: 0.95;
-  letter-spacing: -3px;
+  letter-spacing: -2px;
   margin-bottom: 2rem;
 }
 
@@ -1135,7 +1137,6 @@ html, body {
 /* --- Call to Action Footer Row --- */
 .cta-row-section {
   padding: 4rem 6rem;
-  border-bottom: 1.5px solid var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1197,10 +1198,20 @@ html, body {
 
 .contact-flex {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  gap: 50px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
   border-top: 1.5px solid var(--border-color);
   padding-top: 4rem;
+}
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-info-panel .contact-box p {
+  margin-bottom: 0;
 }
 
 .contact-box h4 {
@@ -1273,6 +1284,75 @@ html, body {
   font-size: 0.9rem;
   color: var(--text-muted);
 }
+
+/* --- Contact Form Styling --- */
+.contact-form-panel {
+  background-color: var(--bg-widget);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: #0c0c0e;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-white);
+  padding: 0.9rem 1.2rem;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 10px rgba(194, 164, 255, 0.15);
+}
+
+.form-submit-btn {
+  background-color: var(--text-white);
+  color: var(--bg-dark);
+  border: 1.5px solid var(--text-white);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.form-submit-btn:hover {
+  background-color: transparent;
+  color: var(--text-white);
+  transform: translateY(-2px);
+}
+
 
 /* --- Interactive Command Palette Widget --- */
 .cmd-palette-btn {
@@ -1410,15 +1490,119 @@ html, body {
 
 /* --- Media Queries / Responsiveness --- */
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
+  .landing-section {
+    padding: 0 4rem 0 7rem;
+  }
   .landing-intro h1 {
-    font-size: 5rem;
+    font-size: 4.4rem;
+    letter-spacing: -2px;
   }
   .section-container {
-    padding: 6rem 4rem;
+    padding: 6.5rem 4rem;
   }
-  .about-section {
+  .about-section,
+  .work-container {
     padding: 0 4rem;
+  }
+  .about-me {
+    max-width: 500px;
+    padding: 3rem;
+  }
+  .about-me h3.title {
+    font-size: 2.4rem;
+  }
+  .about-me p.para {
+    font-size: 1.5rem;
+  }
+  .work-box {
+    width: 420px;
+  }
+  .canvas-wrapper {
+    height: 420px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .landing-section {
+    padding: 0 3rem 0 6rem;
+  }
+  .landing-intro h1 {
+    font-size: 3.8rem;
+    letter-spacing: -2px;
+  }
+  .landing-intro h2 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  .landing-info h2 {
+    font-size: 1.3rem;
+    padding: 0.35rem 0.8rem;
+  }
+  .section-container {
+    padding: 5rem 3rem;
+  }
+  .about-section,
+  .work-container {
+    padding: 0 3rem;
+  }
+  .about-me {
+    max-width: 440px;
+    padding: 2.5rem;
+  }
+  .about-me h3.title {
+    font-size: 2rem;
+  }
+  .about-me p.para {
+    font-size: 1.3rem;
+  }
+  .what-box h2.title {
+    font-size: 3rem;
+  }
+  .career-container h2 {
+    font-size: 3rem;
+  }
+  .skills-canvas-intro h2 {
+    font-size: 3rem;
+  }
+  .canvas-wrapper {
+    height: 380px;
+  }
+  .work-box {
+    width: 380px;
+    gap: 15px;
+  }
+  .work-container h2 {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+  }
+  .work-image {
+    height: 220px;
+  }
+  .work-title h3 {
+    font-size: 2.2rem;
+  }
+  .work-title h4 {
+    font-size: 1.4rem;
+  }
+  .contact-section h3 {
+    font-size: 3.8rem;
+  }
+  .avatar-thinking-bubble {
+    right: 3%;
+    top: 20%;
+    width: 220px;
+    padding: 0.6rem 1rem;
+    font-size: 0.72rem;
+  }
+  .thinking-bubble-medium { right: 10%; top: 27%; }
+  .thinking-bubble-small { right: 13%; top: 30%; }
+  .thinking-bubble-tiny { right: 16%; top: 32%; }
+  .menu-link {
+    font-size: 2.8rem;
+  }
+  .menu-links {
+    gap: 15px;
   }
 }
 
@@ -1476,6 +1660,10 @@ html, body {
   }
   .contact-flex {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .contact-form-panel {
+    padding: 1.5rem;
   }
   .icons-section {
     display: none; /* Hide floating social on small mobiles */
