@@ -738,6 +738,10 @@ function initCommandPalette() {
   const cmdOverlay = document.querySelector(".cmd-overlay");
   const cmdInput = document.querySelector(".cmd-input");
   const cmdResults = document.querySelector(".cmd-results");
+
+  if (!cmdPaletteBtn || !cmdOverlay || !cmdInput || !cmdResults) {
+    return;
+  }
   
   let activeIndex = 0;
   let filteredList = [...PaletteCommands];
@@ -912,7 +916,7 @@ function dynamicLayoutDataBind() {
     let bulletsHtml = "";
     if (proj.bullets && proj.bullets.length > 0) {
       bulletsHtml = `
-        <ul class="work-bullets" style="margin-top: 1rem; padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; display: flex; flex-direction: column; gap: 5px; list-style-type: square; user-select: text;">
+        <ul class="work-bullets">
           ${proj.bullets.map(b => `<li>${b}</li>`).join("")}
         </ul>
       `;
